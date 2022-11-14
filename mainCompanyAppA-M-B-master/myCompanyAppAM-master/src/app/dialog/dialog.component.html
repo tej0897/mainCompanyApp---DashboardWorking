@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Add Company Details</h1>
+<div mat-dialog-content></div>
+
+<form [formGroup]="companyForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Company ID</mat-label>
+    <input
+      formControlName="companyID"
+      matInput
+      placeholder="company ID"
+      type="number"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Company Name</mat-label>
+    <input
+      formControlName="companyName"
+      matInput
+      placeholder="company name"
+      type="text"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Company CEO</mat-label>
+    <input
+      formControlName="companyCEO"
+      matInput
+      placeholder="company ceo"
+      type="text"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Company Turnover</mat-label>
+    <input
+      formControlName="turnover"
+      matInput
+      placeholder="turnover"
+      type="number"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Company Website</mat-label>
+    <input
+      formControlName="website"
+      matInput
+      placeholder="website"
+      type="text"
+    />
+  </mat-form-field>
+</form>
+
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="secondary" mat-dialog-close>close</button>
+  <button style="margin-left: 8px" mat-raised-button color="primary" (click)="addCompany()">
+    {{actionBtn}}
+  </button>
+</div>
