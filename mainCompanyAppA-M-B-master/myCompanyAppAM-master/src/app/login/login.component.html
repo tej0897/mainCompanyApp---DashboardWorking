@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+       <span><h1>MyCompanyApplication</h1></span>
+       <span class="spacer"></span>
+       <a mat-button routerLink="/signup">Register</a>
+       <a mat-button routerLink="/login">Login</a>
+    </mat-toolbar-row>
+ </mat-toolbar>
+
+
+<mat-toolbar>
+    <span>LOGIN</span>
+  </mat-toolbar>
+  <mat-card class="my-card">
+     <mat-card-content>
+        <form class="my-form" [formGroup]="loginForm">
+           <mat-form-field class="full-width">
+              <mat-label>Emp Name</mat-label>
+              <input  matInput  placeholder="Name" name="empName" formControlName="empName">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password" name="password" formControlName="password">
+           </mat-form-field>
+        </form>
+     </mat-card-content>
+     <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">LOG-IN</button>
+     </mat-card-actions>
+
+    <hr>
+     <span>New User?  </span>
+     <a mat-button routerLink="/signup">Click here</a>
+  </mat-card>
