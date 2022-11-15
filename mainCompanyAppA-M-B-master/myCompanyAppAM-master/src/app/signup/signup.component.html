@@ -1,16 +1,17 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span><h1>MyCompanyApplication</h1></span>
+    <span><h1>StockMarketWireFrame</h1></span>
     <span class="spacer"></span>
     <a mat-button routerLink="/signup">Register</a>
     <a mat-button routerLink="/login">Login</a>
   </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-toolbar class="my-card">
+  <span>Registration</span>
+</mat-toolbar>
 
-  <mat-toolbar>
-    <span>Registration</span>
-  </mat-toolbar>
+
   <mat-card class="my-card">
     <mat-card-content>
       <form class="my-form" [formGroup]="signUpForm">
@@ -38,6 +39,7 @@
         <mat-form-field class="full-width">
           <mat-label>Password</mat-label>
           <input
+            type="password"
             matInput
             placeholder="Password"
             name="password"
@@ -52,9 +54,9 @@
       </button>
     </mat-card-actions>
 
-    <br />
     <hr />
     <span>Already registered? </span>
     <a mat-button routerLink="/login">Click here</a>
   </mat-card>
+
 

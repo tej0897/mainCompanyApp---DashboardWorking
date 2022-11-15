@@ -120,11 +120,33 @@
       <tbody class="tbody">
         <tr *ngFor="let b of stockList2">
           <td>{{ b.transactionID }}</td>
-          <td>{{ b.stockPrice }}</td>
+          <td>{{ b.stockPrice+1 }}</td>
           <td>{{ b.timeStamp }}</td>
           <td>{{ b.companyIDFK }}</td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <div>
+    <table class="table table-bordered mt-3">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Average Price</th>
+          <th scope="col">Max Value</th>
+          <th scope="col">Min Value</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let b of stockList2 ">
+          <td>{{ b.stockPrice }}</td>
+          <td>{{ b.stockPrice }}</td>
+          <td>{{ b.stockPrice }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
   

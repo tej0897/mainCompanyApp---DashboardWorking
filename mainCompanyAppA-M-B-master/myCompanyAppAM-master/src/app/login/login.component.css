@@ -11,3 +11,8 @@
   .spacer {
     flex: 1 1 auto;
   }
+
+  .my-card{
+    justify-content: center;
+    align-self: center;
+  }

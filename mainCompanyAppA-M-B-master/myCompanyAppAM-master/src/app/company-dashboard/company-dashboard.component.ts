@@ -3,7 +3,6 @@ import {ViewChild, Component, OnInit} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { Dialog2Service } from '../dialog2/dialog2.service';
 import { ApiService } from '../services/api.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Dialog2 } from '../dialog2/dialog2';
@@ -28,8 +27,10 @@ export class CompanyDashboardComponent implements OnInit {
   constructor(
     private dialog: MatDialog, 
     private companyService: ApiService, 
-    private stockService: Dialog2Service
+    
     ){
+      const max = Math.max.apply(Math, this.stockList2.map(o=>o.stockPrice));
+      const min = Math.min.apply(Math, this.stockList2.map(o=>o.stockPrice));
   }
 
   ngOnInit(): void {
@@ -106,15 +107,15 @@ export class CompanyDashboardComponent implements OnInit {
 
   stockObj: Dialog2 = new Dialog2();
   stockList2: Array<Dialog2> = [];
+  stockList3: Array<Dialog2> = [];
   data: {} | any;
+
 
   getStock(cid:number){
     this.companyService.getStock(cid).subscribe(
       data=>{
-    
         this.stockList2 = Object.values(data);
         console.log(this.stockList2);
-
       },
       (err) => {
         console.log(err);
@@ -122,6 +123,5 @@ export class CompanyDashboardComponent implements OnInit {
     )
   }
 
-
-
+  
 }
