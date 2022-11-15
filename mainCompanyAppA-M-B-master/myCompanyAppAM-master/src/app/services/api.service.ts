@@ -13,23 +13,26 @@ export class ApiService {
   API = 'http://localhost:8081/api/v1';
 
   public addCompany(companyData: any) {
-    return this.http.post(this.API + '/addCompany', companyData);
+    return this.http.post('https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/mycompanyappresource', companyData);
   }
 
   public getAllCompany():Observable<Array<Company>>{
-    return this.http.get<Array<Company>>(this.API + '/getAllCompanies');
+    return this.http.get<Array<Company>>('https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/mycompanyappresource');
   }
 
   public putCompany(data: any, id : number){
-    return this.http.put<any>("http://localhost:8081/api/v1/updateCompany/"+id, data);
+    return this.http.put<any>("https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/"+id, data);
   }
 
   public deleteCompany(id: number){
-    return this.http.delete<any>("http://localhost:8081/api/v1/deleteCompany/"+id)
+    return this.http.delete<any>("https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/"+id)
   }
 
   public getStock(id : number): Observable<Array<any>>{
 
-    return this.http.get<Array<any>>("http://localhost:8081/api/stocks/getAllStocks/"+id);
+    return this.http.get<Array<any>>(
+      'https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/stocks/' +
+        id
+    );
   }
 }

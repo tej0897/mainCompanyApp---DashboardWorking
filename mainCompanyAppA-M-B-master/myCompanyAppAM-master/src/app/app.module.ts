@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { Dialog2Component } from './dialog2/dialog2.component';
 import {MatCardModule} from '@angular/material/card';
+import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 
 
 
@@ -30,6 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     AppComponent,
     DialogComponent,
     Dialog2Component,
+    CompanyDashboardComponent,
+    
   ],
   imports: [
     FormsModule,
