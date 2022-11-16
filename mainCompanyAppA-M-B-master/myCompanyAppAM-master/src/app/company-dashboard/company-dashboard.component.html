@@ -1,152 +1,173 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
     <mat-icon>timeline</mat-icon>
   </button>
   <span>Company App</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button color="dark" (click)="openDialog()">Add Company</button>
-  <button mat-raised-button color="warn" routerLink="/login">  Logout</button>
+  <button mat-raised-button color="dark" (click)="openDialog()">
+    Add Company
+  </button>
+  <button mat-raised-button color="warn" routerLink="/login">Logout</button>
 </mat-toolbar>
 
 <div class="container">
-  <div style="margin-top: 10px;">
-
+  <div style="margin-top: 10px">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
     </mat-form-field>
-    
+
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
-    
         <!-- companyID Column -->
         <ng-container matColumnDef="companyID">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> companyID </th>
-          <td mat-cell *matCellDef="let row"> {{row.companyID}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>companyID</th>
+          <td mat-cell *matCellDef="let row">{{ row.companyID }}</td>
         </ng-container>
-    
+
         <!-- companyName Column -->
         <ng-container matColumnDef="companyName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> companyName </th>
-          <td mat-cell *matCellDef="let row"> {{row.companyName}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>companyName</th>
+          <td mat-cell *matCellDef="let row">{{ row.companyName }}</td>
         </ng-container>
-    
+
         <!-- companyCEO Column -->
         <ng-container matColumnDef="companyCEO">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> companyCEO </th>
-          <td mat-cell *matCellDef="let row"> {{row.companyCEO}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>companyCEO</th>
+          <td mat-cell *matCellDef="let row">{{ row.companyCEO }}</td>
         </ng-container>
-    
+
         <!-- turnover Column -->
         <ng-container matColumnDef="turnover">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> turnover </th>
-          <td mat-cell *matCellDef="let row"> {{row.turnover | currency}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>turnover</th>
+          <td mat-cell *matCellDef="let row">{{ row.turnover | currency }}</td>
         </ng-container>
 
         <!-- website Column -->
         <ng-container matColumnDef="website">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> website </th>
-          <td mat-cell *matCellDef="let row"> {{row.website}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>website</th>
+          <td mat-cell *matCellDef="let row">{{ row.website }}</td>
         </ng-container>
 
         <!-- Stock Column -->
         <ng-container matColumnDef="stockPrice">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> stockPrice </th>
-          <td mat-cell *matCellDef="let row"> {{row.stockPrice}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>stockPrice</th>
+          <td mat-cell *matCellDef="let row">{{ row.stockPrice }}</td>
         </ng-container>
 
         <!-- Edit and delete Column -->
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-          <td mat-cell *matCellDef="let row"> 
-          <button mat-icon-button (click)="editCompany(row)" color="primary">
-            <mat-icon>edit</mat-icon>
-          </button> 
-          
-          <button mat-icon-button (click)="deleteCompany(row.companyID)" color="secondary">
-            <mat-icon>delete</mat-icon>
-          </button> 
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editCompany(row)" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
 
-                    <button mat-icon-button (click)="openDialog2(row.companyID)" color="secondary">
-            <mat-icon>add_box</mat-icon>
-          </button>
+            <button
+              mat-icon-button
+              (click)="deleteCompany(row.companyID)"
+              color="secondary"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+
+            <button
+              mat-icon-button
+              (click)="openDialog2(row.companyID)"
+              color="secondary"
+            >
+              <mat-icon>add_box</mat-icon>
+            </button>
 
           </td>
         </ng-container>
-    
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
         </tr>
       </table>
-    
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
     </div>
-
-
   </div>
 </div>
 
+<div style="margin-left: 10px">
 
-<div style="margin-left: 10px;">
-  <h2>Get Stock data: </h2>
-  
+  <br><br><hr>
+  <h2>Get Stock data:</h2>
+
   <form #stockForm="ngForm" (ngSubmit)="getStock(stockObj.companyIDFK)">
-  
-  <input type="number" name="Company ID" class="form-control" placeholder="Enter Company ID" [(ngModel)]="stockObj.companyIDFK" required>
-  <br>
-  
-  <button  class="btn btn-success" type="submit"> Get Stock</button>
-  
-  <br><br> <hr>
-  
+    <input
+      type="number"
+      name="Company ID"
+      class="form-control"
+      placeholder="Enter Company ID"
+      [(ngModel)]="stockObj.companyIDFK"
+      required
+    />
+    <br />
+
+    <button class="btn btn-success" type="submit">Get Stock</button>
+
+    <br /><br />
+    <hr />
   </form>
-    
-  </div>
-  
-  <div>
-    <table class="table table-bordered mt-3">
-      <thead class="thead">
-        <tr>
-          <th scope="col">Transaction ID</th>
-          <th scope="col">Stock Price</th>
-          <th scope="col">Time Stamp</th>
-          <th scope="col">Company ID</th>
-        </tr>
-      </thead>
-      <tbody class="tbody">
-        <tr *ngFor="let b of stockList2">
-          <td>{{ b.transactionID }}</td>
-          <td>{{ b.stockPrice+1 }}</td>
-          <td>{{ b.timeStamp }}</td>
-          <td>{{ b.companyIDFK }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
 
-  <div>
-    <table class="table table-bordered mt-3">
-      <thead class="thead">
-        <tr>
-          <th scope="col">Average Price</th>
-          <th scope="col">Max Value</th>
-          <th scope="col">Min Value</th>
-        </tr>
-      </thead>
-      <tbody class="tbody">
-        <tr *ngFor="let b of stockList2 ">
-          <td>{{ b.stockPrice }}</td>
-          <td>{{ b.stockPrice }}</td>
-          <td>{{ b.stockPrice }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div>
+  <table class="table table-bordered mt-3">
+    <thead class="thead">
+      <tr>
+        <th scope="col">Transaction ID</th>
+        <th scope="col">Stock Price</th>
+        <th scope="col">Time Stamp</th>
+        <th scope="col">Company ID</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let b of stockList2">
+        <td>{{ b.transactionID }}</td>
+        <td>{{ b.stockPrice}}</td>
+        <td>{{ b.timeStamp }}</td>
+        <td>{{ b.companyIDFK }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><hr><br><br><hr>
+<div>
+  <table class="table table-bordered mt-3">
+    <thead class="thead">
+      <tr>
+        <th scope="col">Average Price</th>
+        <th scope="col">Max Value</th>
+        <th scope="col">Min Value</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr>
+        <td>{{average}}</td>
+        <td>{{max}}</td>
+        <td>{{min}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  <hr>
+<hr />
 
-  
+<br><br><hr><br><br><hr>
