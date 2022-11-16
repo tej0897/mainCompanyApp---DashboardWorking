@@ -23,31 +23,37 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  // login(){
-  //   this.loginForm.reset();
-  //   alert("Logged in successfully!");
-  //   this.router.navigate(['dashboard']);
-  //   // 
-  //   this.router.navigate(['signup']);
+
+  //   login(){
+  //   this.http.get<any>("http://localhost:8080/api/v1/getAllEmp")
+  //   .subscribe(res=>{
+  //     const user = res.find((a:any)=>{
+  //       return a.empName === this.loginForm.value.empName 
+  //         && a.password === this.loginForm.value.password
+  //     });
+  //     if(user){
+  //       alert("Logged in successfully!");
+  //       this.loginForm.reset();
+  //       this.router.navigate(['dashboard'])
+  //     } else {
+  //       alert("user not found");
+  //     }
+  //   }, error =>{
+  //     alert("Something went wrong!")
+  //   })
   // }
 
-    login(){
-    this.http.get<any>("http://localhost:8080/api/v1/getAllEmp")
-    .subscribe(res=>{
-      const user = res.find((a:any)=>{
-        return a.empName === this.loginForm.value.empName 
-          && a.password === this.loginForm.value.password
-      });
-      if(user){
-        alert("Logged in successfully!");
+  login(){
+    this.http.post<any>("http://localhost:8080/auth/emp/login", this.loginForm.value)
+      .subscribe(res=>{
+        alert("Login Successfull!");
+        console.log(this.loginForm.value);
         this.loginForm.reset();
-        this.router.navigate(['dashboard'])
-      } else {
-        alert("user not found");
-      }
-    }, error =>{
-      alert("Something went wrong!")
-    })
+        this.router.navigate(['dashboard']);
+    
+      }, error =>{
+        alert("something went wrong!");
+      })
   }
 
 }

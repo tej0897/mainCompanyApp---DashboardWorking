@@ -6,7 +6,7 @@
   >
     <mat-icon>timeline</mat-icon>
   </button>
-  <span>Company App</span>
+  <span>StockMarketWireFrame</span>
   <span class="example-spacer"></span>
   <button mat-raised-button color="dark" (click)="openDialog()">
     Add Company
@@ -14,10 +14,11 @@
   <button mat-raised-button color="warn" routerLink="/login">Logout</button>
 </mat-toolbar>
 
-<h2 style="margin-left: 14px;">List of Company Details:</h2>
 <div class="container">
   <div style="margin-top: 10px">
     <mat-form-field appearance="standard">
+      <span>List of Registered Companies</span>
+      <br><hr>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
     </mat-form-field>
