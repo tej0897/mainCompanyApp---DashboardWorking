@@ -14,6 +14,7 @@
   <button mat-raised-button color="warn" routerLink="/login">Logout</button>
 </mat-toolbar>
 
+<h2 style="margin-left: 14px;">List of Company Details:</h2>
 <div class="container">
   <div style="margin-top: 10px">
     <mat-form-field appearance="standard">
@@ -109,6 +110,8 @@
 
   <br><br><hr>
   <h2>Get Stock data:</h2>
+  <p>The following section provides more stock details on selecting the company ID. Therefore, please enter the company ID to get the desired stock details.</p>
+  <br>
 
   <form #stockForm="ngForm" (ngSubmit)="getStock(stockObj.companyIDFK)">
     <input
@@ -121,7 +124,7 @@
     />
     <br />
 
-    <button class="btn btn-success" type="submit">Get Stock</button>
+    <button class="btn btn-success" type="submit">Get Data</button>
 
     <br /><br />
     <hr />
@@ -154,8 +157,8 @@
     <thead class="thead">
       <tr>
         <th scope="col">Average Price</th>
-        <th scope="col">Max Value</th>
-        <th scope="col">Min Value</th>
+        <th scope="col">Max Price</th>
+        <th scope="col">Min Price</th>
       </tr>
     </thead>
     <tbody class="tbody">
