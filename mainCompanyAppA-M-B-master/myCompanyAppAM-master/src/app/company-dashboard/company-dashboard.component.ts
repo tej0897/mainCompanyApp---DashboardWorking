@@ -31,7 +31,11 @@ export class CompanyDashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private companyService: ApiService, private router: Router) {
+  constructor(
+    private dialog: MatDialog,
+    private companyService: ApiService,
+    private router: Router
+  ) {
     const max = Math.max.apply(
       Math,
       this.stockList2.map((o) => o.stockPrice)
@@ -40,7 +44,6 @@ export class CompanyDashboardComponent implements OnInit {
       Math,
       this.stockList2.map((o) => o.stockPrice)
     );
-    
   }
 
   ngOnInit(): void {
@@ -153,10 +156,24 @@ export class CompanyDashboardComponent implements OnInit {
       }
     );
   }
-
-
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
+  }
+
+  stockStartDate: number | any;
+  stockEndDate: number | any;
+  newlist: Array<Dialog2> = [];
+  selectedMembers: Array<Dialog2> = [];
+
+  getStockData(cid: number) {
+    this.companyService.getStock(cid).subscribe((data) => {
+      this.newlist = Object.values(data);
+      console.log(this.newlist);
+      this.selectedMembers = this.newlist.filter(
+        m => new Date(m.timeStamp) >= new Date(this.stockStartDate) && new Date(m.timeStamp) <= new Date(this.stockEndDate)
+      );
+      console.log(this.selectedMembers);
+    });
   }
 }
