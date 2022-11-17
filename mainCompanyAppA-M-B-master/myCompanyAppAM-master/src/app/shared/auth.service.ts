@@ -11,10 +11,7 @@ export class AuthService {
   constructor() { }
   IsLoggedIn(){
     return !!localStorage.getItem('token');
-    // it will check for token, if it is present it will return true. Else false.
   }
 
-  // const token1 = localStorage.getItem('token')
-  // this.isLoggedIn.next(!!token1);
   
 }
