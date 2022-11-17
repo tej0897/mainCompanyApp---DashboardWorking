@@ -7,6 +7,7 @@ import { ApiService } from '../services/api.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Dialog2 } from '../dialog2/dialog2';
 import { Dialog2Component } from '../dialog2/dialog2.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -30,7 +31,7 @@ export class CompanyDashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private companyService: ApiService) {
+  constructor(private dialog: MatDialog, private companyService: ApiService, private router: Router) {
     const max = Math.max.apply(
       Math,
       this.stockList2.map((o) => o.stockPrice)
@@ -39,6 +40,7 @@ export class CompanyDashboardComponent implements OnInit {
       Math,
       this.stockList2.map((o) => o.stockPrice)
     );
+    
   }
 
   ngOnInit(): void {
@@ -150,5 +152,11 @@ export class CompanyDashboardComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 }
