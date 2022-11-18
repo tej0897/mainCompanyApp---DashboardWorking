@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Dialog2 } from './dialog2';
 import { Dialog2Service } from './dialog2.service';
@@ -13,7 +14,8 @@ import { Dialog2Service } from './dialog2.service';
 export class Dialog2Component implements OnInit {
   constructor(
     private stockService: Dialog2Service,
-    @Inject(MAT_DIALOG_DATA) public editData: any
+    @Inject(MAT_DIALOG_DATA) public editData: any,
+    private router : Router
   ) {}
 
   ngOnInit(): void {}

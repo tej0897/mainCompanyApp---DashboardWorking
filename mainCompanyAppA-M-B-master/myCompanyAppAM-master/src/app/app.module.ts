@@ -25,7 +25,7 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core'
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({

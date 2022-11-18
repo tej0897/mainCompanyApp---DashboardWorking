@@ -18,7 +18,8 @@
   <div style="margin-top: 10px">
     <mat-form-field appearance="standard">
       <span>List of Registered Companies</span>
-      <br><hr>
+      <br />
+      <hr />
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
     </mat-form-field>
@@ -84,7 +85,6 @@
             >
               <mat-icon>add_box</mat-icon>
             </button>
-
           </td>
         </ng-container>
 
@@ -174,74 +174,94 @@
 
 <hr /> -->
 
-<br><br>
-<h2>Filter Stock data via timeline:</h2>
-<p>The following section provides stock details on selecting the dates.</p>
-<div style="padding-left: 15px;">
- 
-  <br>
-  <form #stockDateDate="ngForm" (ngSubmit)="getStockData(stockObj.companyIDFK)">
-    <input
-      type="number"
-      name="Company ID"
-      class="form-control"
-      placeholder="Enter Company ID"
-      [(ngModel)]="stockObj.companyIDFK"
-      required
-    />
+<div class="blocktext">
+<br/><hr />
+  <h2>Filter Stock data via timeline:</h2>
+  <p>The following section provides stock details on selecting the dates.</p>
+  <div style="padding-left: 15px">
     <br />
-    <label for="inputEntryDate">Select Start date:</label>
-    <input type="date" id="inputEntryDate" name="inputEntryDate" [(ngModel)]="stockStartDate">
-    <br><br>
-    <label for="inputEntryDate">Select End date: </label>
-    <input type="date" id="inputEntryDate" name="inputEntryDate"  [(ngModel)]="stockEndDate">
-    <br><br><br>
-    <button class="btn btn-success" type="submit">Get Data</button>
-  </form>
-</div>
-<hr><br><br><hr>
-
-<div>
-  <table class="table table-bordered mt-3">
-    <thead class="thead">
-      <tr>
-        <th scope="col">Transaction ID</th>
-        <th scope="col">Stock Price</th>
-        <th scope="col">Time Stamp</th>
-        <th scope="col">Company ID</th>
-      </tr>
-    </thead>
-    <tbody class="tbody">
-      <tr *ngFor="let stock of selectedMembers">
-        <td>{{ stock.transactionID }}</td>
-        <td>{{ stock.stockPrice}}</td>
-        <td>{{ stock.timeStamp }}</td>
-        <td>{{ stock.companyIDFK }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-
-<br><br><hr>
-<div>
-  <table class="table table-bordered mt-3">
-    <thead class="thead">
-      <tr>
-        <th scope="col">Average Price</th>
-        <th scope="col">Max Price</th>
-        <th scope="col">Min Price</th>
-      </tr>
-    </thead>
-    <tbody class="tbody">
-      <tr>
-        <td>{{average}}</td>
-        <td>{{max}}</td>
-        <td>{{min}}</td>
-      </tr>
-    </tbody>
-  </table>
+    <form
+      #stockDateDate="ngForm"
+      (ngSubmit)="getStockData(stockObj.companyIDFK)"
+    >
+      <input
+        type="number"
+        name="Company ID"
+        class="form-control"
+        placeholder="Enter Company ID"
+        [(ngModel)]="stockObj.companyIDFK"
+        required
+      />
+      <br />
+      <label for="inputEntryDate">Select Start date:</label>
+      <input
+        type="date"
+        id="inputEntryDate"
+        name="inputEntryDate"
+        [(ngModel)]="stockStartDate"
+      />
+      <br /><br />
+      <label for="inputEntryDate">Select End date: </label>
+      <input
+        type="date"
+        id="inputEntryDate"
+        name="inputEntryDate"
+        [(ngModel)]="stockEndDate"
+      />
+      <br /><br /><br />
+      <button class="btn btn-success" type="submit">Get Data</button>
+    </form>
+  </div>
+  <hr />
+  <br /><br />
+  <hr />
 </div>
 
-<hr><br><br><hr>
+  <div>
+    <table class="table table-bordered mt-3">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Transaction ID</th>
+          <th scope="col">Stock Price</th>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Company ID</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let stock of selectedMembers">
+          <td>{{ stock.transactionID }}</td>
+          <td>{{ stock.stockPrice }}</td>
+          <td>{{ stock.timeStamp }}</td>
+          <td>{{ stock.companyIDFK }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br /><br />
+
+  <br /><br />
+  <hr />
+  <div>
+    <table class="table table-bordered mt-3">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Average Price</th>
+          <th scope="col">Max Price</th>
+          <th scope="col">Min Price</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr>
+          <td>{{ average }}</td>
+          <td>{{ max }}</td>
+          <td>{{ min }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<hr />
+<br /><br />
+<hr />

@@ -112,6 +112,7 @@ export class CompanyDashboardComponent implements OnInit {
   }
 
   openDialog2(id: number) {
+    // this.router.navigate(['dialog2', id]);
     this.dialog
       .open(Dialog2Component, {
         width: '30%',
