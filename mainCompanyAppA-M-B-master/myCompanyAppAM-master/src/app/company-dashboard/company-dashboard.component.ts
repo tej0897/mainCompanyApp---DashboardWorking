@@ -112,7 +112,6 @@ export class CompanyDashboardComponent implements OnInit {
   }
 
   openDialog2(id: number) {
-    // this.router.navigate(['dialog2', id]);
     this.dialog
       .open(Dialog2Component, {
         width: '30%',
@@ -134,29 +133,29 @@ export class CompanyDashboardComponent implements OnInit {
   min: number | any;
   average: number | any;
 
-  // getStock(cid: number) {
-  //   this.companyService.getStock(cid).subscribe(
-  //     (data) => {
-  //       this.stockList2 = Object.values(data);
-  //       console.log(this.stockList2);
-  //       this.stockList3 = this.stockList2;
-  //       this.total = this.stockList3.reduce(
-  //         (sum, item) => sum + item.stockPrice,
-  //         0
-  //       );
-  //       this.average = this.total / this.stockList3.length;
-  //       // finding max
-  //       const values1 = this.stockList3.map((item) => item.stockPrice);
-  //       this.max = Math.max(...values1);
-  //       // finding min
-  //       const values2 = this.stockList3.map((item) => item.stockPrice);
-  //       this.min = Math.min(...values2);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }
+  getStock(cid: number) {
+    this.companyService.getStock(cid).subscribe(
+      (data) => {
+        this.stockList2 = Object.values(data);
+        console.log(this.stockList2);
+        this.stockList3 = this.stockList2;
+        this.total = this.stockList3.reduce(
+          (sum, item) => sum + item.stockPrice,
+          0
+        );
+        this.average = this.total / this.stockList3.length;
+        // finding max
+        const values1 = this.stockList3.map((item) => item.stockPrice);
+        this.max = Math.max(...values1);
+        // finding min
+        const values2 = this.stockList3.map((item) => item.stockPrice);
+        this.min = Math.min(...values2);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
   logout() {
     localStorage.removeItem('token');
