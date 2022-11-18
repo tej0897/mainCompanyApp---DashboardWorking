@@ -5,9 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  // private isLoggedIn = new BehaviorSubject<boolean>(false);
-  // isLoggedInpub = this.isLoggedIn.asObservable();
-
   constructor() { }
   IsLoggedIn(){
     return !!localStorage.getItem('token');

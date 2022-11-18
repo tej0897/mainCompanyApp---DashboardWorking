@@ -21,11 +21,6 @@ export class Dialog2Service {
     );
   }
 
-  // public getStock(id : number): Observable<any>{
-  //   let param1 = new HttpParams().set('stockID', id);
-  //   return this.http.get('https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/stocks/'+id, {params:param1});
-  // }
-
   public getStock(id: number): Observable<Array<Dialog2>> {
     return this.http.get<Array<Dialog2>>(
       'https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/stocks/' +
