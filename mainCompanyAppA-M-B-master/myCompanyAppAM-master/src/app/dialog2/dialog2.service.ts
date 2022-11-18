@@ -9,13 +9,11 @@ import { Dialog2 } from './dialog2';
 export class Dialog2Service {
   constructor(private http: HttpClient) {}
 
-  API = 'http://localhost:8081/api/stocks';
-
   stockList: Dialog2[] | any;
 
   public addStock(cid: number, stock: Dialog2) {
     return this.http.post(
-      'https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/mycompanyappresource/' +
+      'http://localhost:8081/api/stocks/add/' +
         cid,
       stock
     );
@@ -23,7 +21,7 @@ export class Dialog2Service {
 
   public getStock(id: number): Observable<Array<Dialog2>> {
     return this.http.get<Array<Dialog2>>(
-      'https://f991syn2dg.execute-api.us-west-2.amazonaws.com/CompanyAppDeployment/stocks/' +
+      'http://localhost:8081/api/stocks/add/getAllStocks/' +
         id
     );
   }
